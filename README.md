@@ -10,6 +10,11 @@ npm install
 npm run serve
 ```
 
+### Load data
+```
+json-server --watch src/data/inspectieData.json
+```
+
 ### Compiles and minifies for production
 ```
 npm run build

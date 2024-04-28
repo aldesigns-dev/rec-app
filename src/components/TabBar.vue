@@ -1,35 +1,29 @@
 <template>
-    <v-bottom-navigation grow color="primary">
-      <v-btn to="/" color="rec-secondary">
-        <v-icon color="rec-primary">mdi-home</v-icon>
+    <v-bottom-navigation elevation="3" grow>
+      <v-btn to="/">
+        <v-icon>mdi-home</v-icon>
       </v-btn>
-   
-      <v-btn color="rec-secondary">
-        <v-icon color="rec-primary">mdi-camera</v-icon>
+      <v-btn>
+        <v-icon>mdi-camera</v-icon>
       </v-btn>
-
-      <v-btn to="/instellingen" color="rec-secondary">
-        <v-icon color="rec-primary">mdi-cog</v-icon>
+      <v-btn to="/instellingen" >
+        <v-icon>mdi-cog</v-icon>
       </v-btn>
-      
     </v-bottom-navigation>
 </template>
 
 <script>
 export default {
-  name: 'TabBar',
-  data() {
-    return {
-      drawer: false,
-      menuItems: [
-        { icon: 'mdi-home', route: '/' },
-        { icon: 'mdi-camera', route: '/' },
-        { icon: 'mdi-cog', text: 'Instellingen', route: '/instellingen' },
-      ]
-    };
-  }
+  name: 'TabBar'
 }
 </script>
 
 <style scoped>
+.v-bottom-navigation {
+  background: rgb(var(--v-theme-background));
+  border-top: 1px solid rgb(var(--v-theme-surface));
+}
+.v-btn--active {
+  background: rgb(var(--v-theme-surface));
+}
 </style>

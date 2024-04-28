@@ -1,7 +1,7 @@
 <template>
   <nav>
     <v-app-bar :elevation="3">
-      <v-app-bar-nav-icon color="rec-primary" @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
       <img :src="require('@/assets/rec-logo-icon-left.png')" alt="Real Estate Care logo" class="rec-logo">
       <!-- <router-link to="/">
@@ -9,14 +9,14 @@
       </router-link> -->
       <v-spacer></v-spacer>
       <v-btn icon>
-        <v-icon color="rec-primary">mdi-account</v-icon>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app temporary>
       <v-list>
         <v-list-item  v-for="item in menuItems" :key="item.text" router :to="item.route">
-          <v-list-item-title><v-icon>{{ item.icon }}</v-icon>{{ item.text }}</v-list-item-title>
+          <v-list-item-title><v-icon size="small">{{ item.icon }}</v-icon>{{ item.text }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -42,11 +42,21 @@ export default {
 </script>
 
 <style scoped>
+.v-app-bar {
+  background: rgb(var(--v-theme-background));
+  border-bottom: 1px solid rgb(var(--v-theme-surface));
+}
 .rec-logo {
   width: 100%;
   max-width: 150px;
 }
-.v-list-item--active > .v-list-item__overlay {
-  opacity: 0;
+.v-list-item {
+  height: 55px;
+}
+.v-list-item-title {
+  color: rgb(var(--v-theme-primary));
+}
+.v-list-item-title i {
+  padding: 5px;
 }
 </style>

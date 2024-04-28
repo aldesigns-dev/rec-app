@@ -5,20 +5,34 @@ import 'vuetify/styles'
 // Vuetify
 import { createVuetify } from 'vuetify'
 
+const customLightTheme = {
+  light: true,
+  colors: {
+    background: '#FFFFFF',
+    surface: '#f1f2f3',
+    'surface-variant': '#e4e5e6',
+    primary: '#00aaa0',
+    secondary: '#141B1F',
+  },
+};
+
+const customDarkTheme = {
+  dark: true,
+  colors: {
+    background: '#141B1F',
+    surface: '#2e3d46',
+    'surface-variant': '#475965',
+    primary: '#00aaa0',
+    secondary: '#FFFFFF',
+  },
+};
+
 export default createVuetify({
-  // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
   theme: {
-    defaultTheme: 'myCustomTheme',
+    defaultTheme: "customLightTheme",
     themes: {
-      myCustomTheme: {
-        dark: false,
-        colors: {
-          background: '#ffffff',
-          'rec-grey': '#f2f3f4',
-          'rec-primary': '#141B1F',
-          'rec-secondary': '#00aaa0'
-        }
-      }
-    }
-  }
-})
+      customLightTheme,
+      customDarkTheme,
+    },
+  },
+});
