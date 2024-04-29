@@ -12,7 +12,7 @@ npm run serve
 
 ### Load data
 ```
-json-server --watch src/data/inspectieData.json
+json-server --watch src/data/inspectionData.json
 ```
 
 ### Compiles and minifies for production
