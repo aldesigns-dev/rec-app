@@ -12,7 +12,7 @@
               <ul v-if="isGoalFilled(goal)">
                 <!-- Itereren over de opties van het inspectiedoel -->
                 <li v-for="(value, key) in goal.options" :key="key" class="v-list-items">
-                  {{ key }}: <span class="option-value">{{ value.value }}</span>
+                  {{ vertalingen[key] }}: <span class="option-value">{{ value }}</span>
                 </li>
               </ul>
               <!-- Als het inspectiedoel niet is ingevuld -->
@@ -28,6 +28,8 @@
 
 <script>
 import { fetchInspections } from '@/services/InspectionService'
+import InspectionModel from '@/models/InspectionModel'
+import VertalingenMixin from '@/mixins/VertalingenMixin'
 import CollapsibleSection from '@/components/CollapsibleSection.vue'
 
 export default {
@@ -35,6 +37,7 @@ export default {
   components: {
     CollapsibleSection
   },
+  mixins: [VertalingenMixin],
   data() {
     return {
       inspections: []
@@ -51,9 +54,27 @@ export default {
     }
   },
   methods: {
+    // Ophalen en verwerken inspectiedata
+    async fetchAndProcessInspections() {
+      try {
+        // Ophalen inspectiedata - HTTP verzoek via InspectionService.js
+        const inspections = await fetchInspections();
+        // Verwerken inspectiedata - mapping naar InspectionModel objecten
+        this.inspections = inspections.map(inspection =>
+          new InspectionModel(
+            inspection.id,
+            inspection.address,
+            inspection.date,
+            inspection.inspection_goals,
+          ),
+        );
+      } catch (error) {
+        console.error('Error fetching and processing inspections:', error);
+      }
+    },
     // Controleren of minstens één optie van het inspectiedoel is ingevuld
     isGoalFilled(goal) {
-      return Object.values(goal.options).some(option => option.value !== "");
+      return Object.values(goal.options).some(option => option !== "");
     },
     // Datum weergeven als "DD-MM-YYYY"
     formatDate(dateString) {
@@ -61,12 +82,12 @@ export default {
       return `${day}-${month}-${year}`;
     }
   },
-  // InspectieData ophalen
   mounted() {
-    fetchInspections()
-      .then(data => {
-        this.inspections = data;
-      });
+    this.fetchAndProcessInspections();
+    // fetchInspections()
+    //   .then(data => {
+    //     this.inspections = data;
+    //   });
   }
 }
 </script>

@@ -1,0 +1,289 @@
+{
+  "options": {
+    "location": { "type": "tekstveld" },
+    "new_damage": { "type": "radio button" },
+    "type_of_damage": { "type": "dropdown", "options": ["Moedwillig", "Slijtage", "Geweld", "Normaal gebruik", "Calamiteit", "Anders"] },
+    "date": { "type": "date" },
+    "urgent_action_required": { "type": "radio button" },
+    "description": { "type": "tekstveld" },
+    "photos": { "type": "image" },
+    "type_of_maintenance": { "type": "dropdown", "options": ["Schilderwerk", "Houtrot", "Elekstra", "Leidingwerk", "Beglazing"] },
+    "cost_indication": { "type": "dropdown", "options": ["0-500", "500-1500", "1500+"] },
+    "type_of_installation": { "type": "dropdown", "options": ["Koeling", "Verwarming", "Luchtverversing", "Elektra", "Beveiliging"] },
+    "reported_malfunctions": { "type": "tekstveld" },
+    "test_procedure": { "type": "link" },
+    "approved": { "type": "radio button" },
+    "comments": { "type": "tekstveld" },
+    "existing_modifications": { "type": "link" },
+    "installer": { "type": "dropdown", "options": ["Huurder", "Aannemer", "Onbekend"] }, 
+    "description_modification": { "type" : "tekstveld" },
+    "action_required": { "type": "dropdown", "options": ["Accepteren", "Laten keuren", "Laten verwijderen", "Laten aanpassen en keuren"] }
+  },
+  "inspections": [
+    {
+      "id": 1,
+      "address": "Arnhem, Steenstraat 86",
+      "date": "2024-04-10",
+      "inspection_goals": [
+        {
+          "goal": "Schade opnemen",
+          "options": {
+            "location": "Voordeur gemeenschappelijke ruimte",
+            "new_damage": "Ja",
+            "type_of_damage": "Slijtage",
+            "date": "2024-04-14",
+            "urgent_action_required": "Ja",
+            "description": "Slot defect",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Achterstallig onderhoud opnemen",
+          "options": {
+            "location": "",
+            "type_of_maintenance": "",
+            "urgent_action_required": "",
+            "cost_indication": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Technische installaties inspecteren",
+          "options": {
+            "location": "",
+            "type_of_installation": "",
+            "reported_malfunctions": "",
+            "test_procedure": "",
+            "approved": "",
+            "comments": "",
+            "photos": ""
+          } 
+        },
+        {
+          "goal": "Modificaties inspecteren",
+          "options": {
+            "existing_modifications": "",
+            "location": "",
+            "installer": "",
+            "description_modification": "",
+            "action_required": "",
+            "comments": "",
+            "photos": ""
+          }
+        }  
+      ]
+    },
+    {
+      "id": 2,
+      "address": "Utrecht, Oudegracht 15",
+      "date": "2024-04-24",
+      "inspection_goals": [
+        {
+          "goal": "Schade opnemen",
+          "options": {
+            "location": "",
+            "new_damage": "",
+            "type_of_damage": "",
+            "date": "",
+            "urgent_action_required": "",
+            "description": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Achterstallig onderhoud opnemen",
+          "options": {
+            "location": "Kozijnen",
+            "type_of_maintenance": "Houtrot",
+            "urgent_action_required": "Ja",
+            "cost_indication": "500-1500",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Technische installaties inspecteren",
+          "options": {
+            "location": "",
+            "type_of_installation": "",
+            "reported_malfunctions": "",
+            "test_procedure": "",
+            "approved": "",
+            "comments": "",
+            "photos": ""
+          } 
+        },
+        {
+          "goal": "Modificaties inspecteren",
+          "options": {
+            "existing_modifications": "",
+            "location": "",
+            "installer": "",
+            "description_modification": "",
+            "action_required": "",
+            "comments": "",
+            "photos": ""
+          }
+        }  
+      ]
+    },
+    {
+      "id": 3,
+      "address": "Amsterdam, Jordaan 23",
+      "date": "2024-04-18",
+      "inspection_goals": [
+        {
+          "goal": "Schade opnemen",
+          "options": {
+            "location": "",
+            "new_damage": "",
+            "type_of_damage": "",
+            "date": "",
+            "urgent_action_required": "",
+            "description": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Achterstallig onderhoud opnemen",
+          "options": {
+            "location": "",
+            "type_of_maintenance": "",
+            "urgent_action_required": "",
+            "cost_indication": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Technische installaties inspecteren",
+          "options": {
+            "location": "Kelder",
+            "type_of_installation": "Verwarming",
+            "reported_malfunctions": "Komt niet op temperatuur hoger dan 16 graden",
+            "test_procedure": "Link",
+            "approved": "Nee",
+            "comments": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Modificaties inspecteren",
+          "options": {
+            "existing_modifications": "",
+            "location": "",
+            "installer": "",
+            "description_modification": "",
+            "action_required": "",
+            "comments": "",
+            "photos": ""
+          }
+        }  
+      ]
+    },
+    {
+      "id": 4,
+      "address": "Rotterdam, Coolsingel 8",
+      "date": "2024-04-16",
+      "inspection_goals": [
+        {
+          "goal": "Schade opnemen",
+          "options": {
+            "location": "",
+            "new_damage": "",
+            "type_of_damage": "",
+            "date": "",
+            "urgent_action_required": "",
+            "description": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Achterstallig onderhoud opnemen",
+          "options": {
+            "location": "",
+            "type_of_maintenance": "",
+            "urgent_action_required": "",
+            "cost_indication": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Technische installaties inspecteren",
+          "options": {
+            "location": "",
+            "type_of_installation": "",
+            "reported_malfunctions": "",
+            "test_procedure": "",
+            "approved": "",
+            "comments": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Modificaties inspecteren",
+          "options": {
+            "existing_modifications": "Link",
+            "location": "Balkon",
+            "installer": "Huurder",
+            "description_modification": "Vlonder vloertegels gehele balkon oppervlak",
+            "action_required": "Geen",
+            "comments": "Ziet er mooi uit",
+            "photos": ""
+          }
+        }  
+      ]
+    },
+    {
+      "id": 5,
+      "address": "Eindhoven, Dommelstraat 2",
+      "date": "2024-04-12",
+      "inspection_goals": [
+        {
+          "goal": "Schade opnemen",
+          "options": {
+            "location": "Lobby appartementencomplex",
+            "new_damage": "Ja",
+            "type_of_damage": "Calamiteit",
+            "date": "2024-04-16",
+            "urgent_action_required": "Ja",
+            "description": "Deurbelsysteem defect",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Achterstallig onderhoud opnemen",
+          "options": {
+            "location": "",
+            "type_of_maintenance": "",
+            "urgent_action_required": "",
+            "cost_indication": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Technische installaties inspecteren",
+          "options": {
+            "location": "",
+            "type_of_installation": "",
+            "reported_malfunctions": "",
+            "test_procedure": "",
+            "approved": "",
+            "comments": "",
+            "photos": ""
+          }
+        },
+        {
+          "goal": "Modificaties inspecteren",
+          "options": {
+            "Bestaande modificatie": "",
+            "location": "",
+            "installer": "",
+            "description_modification": "",
+            "action_required": "",
+            "comments": "",
+            "photos": ""
+          }
+        }  
+      ]
+    }
+  ]
+}
