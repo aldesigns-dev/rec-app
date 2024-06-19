@@ -235,7 +235,7 @@ export default {
       }
       try {
         const store = useAppStore();
-        // Roep createInspection() aan om een inspectie te maken
+        // Roep createInspection() in de store aan om een inspectie te maken
         const newInspectionObject  = await store.createInspection({
           address: this.newInspection.address,
           date: this.newInspection.date,
