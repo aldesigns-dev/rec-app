@@ -3,7 +3,6 @@
   <v-app>
     <NavBar />
     <v-main>
-      <ToggleTheme />
       <router-view/>
     </v-main>
     <TabBar />
@@ -13,14 +12,12 @@
 <script>
 import NavBar from '@/components/NavBar'
 import TabBar from '@/components/TabBar'
-import ToggleTheme from '@/components/ToggleTheme'
 
 export default {
   name: 'App',
   components: {
     NavBar,
-    TabBar,
-    ToggleTheme
+    TabBar
   }
 }
 </script>
@@ -33,7 +30,7 @@ a {
 h1 {
   display: flex;
   justify-content: center;
-  margin: 20px auto 30px auto;
+  margin: 30px auto 30px auto;
   font-size: 1.6em;
   color: rgb(var(--v-theme-primary));
 }
@@ -44,12 +41,18 @@ li, ul {
   list-style: none;
 }
 .v-main {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 6%;
+  padding-right: 6%;
 }
 .v-container {
   padding: 0;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+}
+.v-card {
+  width: 100%;
+  border-radius: 15px;
+  background: rgb(var(--v-theme-surface));
+  padding: 20px;
 }
 .v-card-title {
   font-size: 1.2rem;

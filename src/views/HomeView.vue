@@ -1,6 +1,6 @@
 <template>
-  <h1>Dashboard</h1>
   <v-container>
+    <h1>Dashboard</h1>
     <v-row>
       <v-col>
         <router-link to="/toegewezen-rapportages">
@@ -12,9 +12,7 @@
                 </template>
                 <v-icon size="60">mdi-file-outline</v-icon>
               </v-badge>
-              <v-card-title>
-                Toegewezen rapportages
-              </v-card-title>
+              <v-card-title>Toegewezen rapportages</v-card-title>
             </v-card-item>
             <v-card-text>
               Hier vind je de aan jou toegewezen rapportages.
@@ -23,16 +21,13 @@
         </router-link>
       </v-col>
     </v-row>
-
     <v-row>
       <v-col>
         <router-link to="/uitgevoerde-rapportages">
           <v-card class="mx-auto" hover>
             <v-card-item>
               <v-icon size="60">mdi-file-check-outline</v-icon>
-              <v-card-title>
-                Uitgevoerde rapportages
-              </v-card-title>
+              <v-card-title>Uitgevoerde rapportages</v-card-title>
             </v-card-item>
             <v-card-text>
               Hier kun je de reeds uitgevoerde rapportages inzien en aanpassen.
@@ -41,16 +36,13 @@
         </router-link>
       </v-col>
     </v-row>
-  
     <v-row>
       <v-col>
         <router-link to="/documentatie">
           <v-card class="mx-auto" hover>
             <v-card-item>
               <v-icon size="60">mdi-text-box-search-outline</v-icon>
-              <v-card-title>
-                Documentatie
-              </v-card-title>
+              <v-card-title>Documentatie</v-card-title>
             </v-card-item>
             <v-card-text>
               Kom je ergens niet uit? Hier vind je alle documentatie.
@@ -59,16 +51,13 @@
         </router-link>
       </v-col>
     </v-row>
-  
     <v-row>
       <v-col>
         <router-link to="/instellingen">
           <v-card class="mx-auto" hover>
             <v-card-item>
               <v-icon size="60">mdi-cog</v-icon>
-              <v-card-title>
-                Instellingen
-              </v-card-title>
+              <v-card-title>Instellingen</v-card-title>
             </v-card-item>
             <v-card-text>
               Hier kun je jouw account- en app instellingen beheren.
@@ -81,13 +70,19 @@
 </template>
 
 <script>
-export default {
-  components: {
+import { useAppStore } from '@/stores/store';
 
+export default {
+  created() {
+    const store = useAppStore();
+    store.fetchInspections();
+    store.fetchOptions();
   },
-  data() {
-    return {
-      badgeCount: 2 // Dynamisch getal voor de badge
+  computed: {
+    badgeCount() {
+      const store = useAppStore();
+      const filteredInspections = store.inspections.filter(inspection => inspection.new_inspection === true);
+      return filteredInspections.length;
     }
   }
 }
@@ -99,14 +94,6 @@ export default {
   max-width: 222px;
   display: flex;
   margin: 30px auto;
-}
-.v-card {
-  width: 100%;
-  border-radius: 15px;
-  background: rgb(var(--v-theme-surface));
-}
-.v-card-item {
-  padding: 25px 25px 10px 25px;
 }
 .v-icon {
   display: flex;

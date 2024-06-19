@@ -1,15 +1,17 @@
 <template>
+  <v-container>
     <v-bottom-navigation elevation="3" grow>
       <v-btn to="/">
         <v-icon>mdi-home</v-icon>
       </v-btn>
-      <v-btn>
-        <v-icon>mdi-camera</v-icon>
+      <v-btn to="/documentatie">
+        <v-icon>mdi-text-box-search-outline</v-icon>
       </v-btn>
       <v-btn to="/instellingen" >
         <v-icon>mdi-cog</v-icon>
       </v-btn>
     </v-bottom-navigation>
+  </v-container>
 </template>
 
 <script>

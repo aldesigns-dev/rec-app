@@ -1,10 +1,9 @@
-<!-- CollapsibleSection.vue -->
 <template>
   <div class="collapsible-section" style="cursor: pointer;" @click="toggleCollapse">
     <span v-if="open">&#x25b2; {{ title }}</span>
     <span v-else>&#x25bc; {{ title }}</span>
   </div>
-  <transition>
+  <transition @after-enter="playOpenSound" @after-leave="playCloseSound">
     <div v-if="open">
       <slot></slot>
     </div>
@@ -19,24 +18,36 @@ export default {
   },
   data() {
     return {
-      open: false
+      open: false,
+      csOpenSound: null,
+      csCloseSound: null
     }
+  },
+  created() {
+    this.csOpenSound = new Audio(require("@/assets/cs-open.mp3"));
+    this.csCloseSound = new Audio(require("@/assets/cs-close.mp3"));
   },
   methods: {
     toggleCollapse() {
       this.open = !this.open;
-    }
+    },
+    playOpenSound() {
+      const soundEnabled = localStorage.getItem('soundEnabled') === 'true';
+      if (soundEnabled) {
+        this.csOpenSound.play();
+      }
+    },
+    playCloseSound() {
+      const soundEnabled = localStorage.getItem('soundEnabled') === 'true';
+      if (soundEnabled) {
+        this.csCloseSound.play();
+      }
+    },
   }
 }
 </script>
 
 <style scoped>
-/* .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-} */
 .collapsible-section {
   width: 100%;
   border-radius: 15px;

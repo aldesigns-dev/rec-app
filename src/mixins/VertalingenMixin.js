@@ -1,4 +1,4 @@
-const VertalingenMixin = {
+const vertalingenMixin = {
   data() {
     return {
       vertalingen: {
@@ -24,4 +24,4 @@ const VertalingenMixin = {
     }
   }
 }
-export default VertalingenMixin;
+export default vertalingenMixin;

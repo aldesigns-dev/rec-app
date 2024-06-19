@@ -4,12 +4,14 @@ import ToegewezenView from '@/views/ToegewezenView.vue'
 import UitgevoerdView from '@/views/UitgevoerdView.vue'
 import DocumentatieView from '@/views/DocumentatieView.vue'
 import InstellingenView from '@/views/InstellingenView.vue'
+import SignUpView from '@/views/SignUpView.vue'
+import LoginView from '@/views/LoginView.vue'
 import NotFound from '@/views/NotFound.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'dasboard',
+    name: 'dashboard',
     component: HomeView
   },
   {
@@ -32,21 +34,25 @@ const routes = [
     name: 'instellingen',
     component: InstellingenView
   },
+  {
+    path: '/aanmelden',
+    name: 'aanmelden',
+    component: SignUpView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
   // catchall 404
   {
     path: '/:catchAll(.*)',
     name: 'NotFound',
-    component: NotFound,
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    //component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: NotFound
   }
 ]
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
-
-export default router
+});

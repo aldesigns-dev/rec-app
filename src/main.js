@@ -1,12 +1,36 @@
+// main.js
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import vuetify from './plugins/vuetify'
+import createVuetify from './plugins/vuetify'
+import createRouter from './router'
+import { createPinia } from 'pinia'
 import { loadFonts } from './plugins/webfontloader'
+import App from './App.vue'
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { getStorage } from 'firebase/storage'
+import { getAuth } from 'firebase/auth';
 
 loadFonts()
 
-createApp(App)
-  .use(router)
-  .use(vuetify)
-  .mount('#app')
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID
+};
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
+const storage = getStorage(firebaseApp);
+const auth = getAuth(firebaseApp);
+export { db, storage, auth }
+
+const app = createApp(App)
+  .use(createVuetify)
+  .use(createRouter)
+  .use(createPinia())
+
+app.mount('#app')
