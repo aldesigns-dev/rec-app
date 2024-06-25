@@ -8,7 +8,8 @@ import App from './App.vue'
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
-import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth'
+import { useAppStore } from './stores/store'
 
 loadFonts()
 
@@ -26,11 +27,15 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp);
 const auth = getAuth(firebaseApp);
+
 export { db, storage, auth }
 
 const app = createApp(App)
   .use(createVuetify)
   .use(createRouter)
   .use(createPinia())
+
+const store = useAppStore();
+store.initializeStore();
 
 app.mount('#app')

@@ -24,6 +24,8 @@ onMounted(() => {
   const savedSoundSetting = localStorage.getItem('soundEnabled');
   if (savedSoundSetting !== null) {
     soundEnabled.value = savedSoundSetting === 'true';
+  } else {
+    localStorage.setItem('soundEnabled', 'true');
   }
 });
 </script>

@@ -37,10 +37,19 @@ export default {
   async loginUser(email, password) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      const userDoc = await getDoc(doc(db, 'users', user.uid));
+      console.log('firebaseService - loginUser(): User logged in, waiting for onAuthStateChanged...');
+      return userCredential.user;
+    } catch (error) {
+      handleFirebaseError(error);
+    }
+  },
+
+  async getUserData(uid) {
+    try {
+      const userDoc = await getDoc(doc(db, 'users', uid));
       if (userDoc.exists()) {
-        return { uid: user.uid, email: user.email, ...userDoc.data() };
+        console.log('firebaseService - getUserData(): User data found ✔️', userDoc.data());
+        return userDoc.data();
       } else {
         throw new Error('Gebruikersgegevens niet gevonden.');
       }
@@ -52,6 +61,7 @@ export default {
   async logoutUser() {
     try {
       await signOut(auth);
+      console.log('firebaseService - logoutUser(): User logged out ✔️');
     } catch (error) {
       handleFirebaseError(error);
     }
@@ -130,6 +140,24 @@ export default {
     try {
       const docRef = doc(db, 'inspections', inspection.id);
       await updateDoc(docRef, inspection);
+    } catch (error) {
+      handleFirebaseError(error);
+    }
+  },
+
+  async fetchAudioURLs() {
+    try {
+      const menuOpenRef = ref(storage, 'audio/menu-open.mp3');
+      const menuCloseRef = ref(storage, 'audio/menu-close.mp3');
+      const menuOpenURL = await getDownloadURL(menuOpenRef);
+      const menuCloseURL = await getDownloadURL(menuCloseRef);
+
+      const csOpenRef = ref(storage, 'audio/cs-open.mp3');
+      const csCloseRef = ref(storage, 'audio/cs-close.mp3');
+      const csOpenURL = await getDownloadURL(csOpenRef);
+      const csCloseURL = await getDownloadURL(csCloseRef);
+
+      return { menuOpenURL, menuCloseURL, csOpenURL, csCloseURL };
     } catch (error) {
       handleFirebaseError(error);
     }

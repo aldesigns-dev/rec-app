@@ -203,7 +203,6 @@ export default {
       try {
         const store = useAppStore();
         await store.logoutUser();
-        console.log('Gebruiker is uitgelogd');
         index.push('/login');
       } catch (error) {
         console.error('Er is een fout opgetreden bij het uitloggen:', error);

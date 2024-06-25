@@ -11,6 +11,9 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { useAppStore } from '@/stores/store'
+
 export default {
   name: "CollapsibleSection",
   props: {
@@ -19,13 +22,25 @@ export default {
   data() {
     return {
       open: false,
-      csOpenSound: null,
-      csCloseSound: null
     }
   },
   created() {
-    this.csOpenSound = new Audio(require("@/assets/cs-open.mp3"));
-    this.csCloseSound = new Audio(require("@/assets/cs-close.mp3"));
+    const store = useAppStore();
+    store.fetchAudioURLs();
+    // Stel soundEnabled in op true als het niet is ingesteld
+    if (localStorage.getItem('soundEnabled') === null) {
+      localStorage.setItem('soundEnabled', 'true');
+    }
+  },
+  computed: {
+    // Map de state van de store naar de component
+    ...mapState(useAppStore, ['csOpenSoundURL', 'csCloseSoundURL']),
+    csOpenSound() {
+      return this.csOpenSoundURL ? new Audio(this.csOpenSoundURL) : null;
+    },
+    csCloseSound() {
+      return this.csCloseSoundURL ? new Audio(this.csCloseSoundURL) : null;
+    }
   },
   methods: {
     toggleCollapse() {
@@ -33,14 +48,14 @@ export default {
     },
     playOpenSound() {
       const soundEnabled = localStorage.getItem('soundEnabled') === 'true';
-      if (soundEnabled) {
-        this.csOpenSound.play();
+      if (soundEnabled && this.csOpenSound) {
+        this.csOpenSound.play()
       }
     },
     playCloseSound() {
       const soundEnabled = localStorage.getItem('soundEnabled') === 'true';
-      if (soundEnabled) {
-        this.csCloseSound.play();
+      if (soundEnabled && this.csCloseSound) {
+        this.csCloseSound.play()
       }
     },
   }
