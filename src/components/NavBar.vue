@@ -3,7 +3,9 @@
     <v-app-bar :elevation="3">
       <v-app-bar-nav-icon @click="toggleMenu"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <img :src="require('@/assets/rec-logo-icon-left-light.png')" alt="Real Estate Care logo" class="rec-logo-light">
+      <router-link :to="'/'">
+        <img :src="require('@/assets/rec-logo-icon-left-light.png')" alt="Real Estate Care logo" class="rec-logo-light">
+      </router-link>
       <v-spacer></v-spacer>
       <v-btn v-if="isUserLoggedIn" icon :to="'/instellingen'">
         <v-avatar>

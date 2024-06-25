@@ -81,7 +81,7 @@ export default {
         if (userExists) {
           await store.loginUser(this.email, this.password);
           console.log('LoginForm: Gebruiker is succesvol ingelogd.');
-          index.push('/instellingen');
+          index.push('/');
         }
       } catch (error) {
         console.error('Er is een fout opgetreden bij het inloggen:', error);

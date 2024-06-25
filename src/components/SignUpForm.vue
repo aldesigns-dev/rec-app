@@ -25,8 +25,9 @@
         </v-col>
         <v-col cols="12">
           <v-card class="simulatie">
-            <v-card-title>Simulatie 2-way authenticatie:</v-card-title>
+            <v-card-title>Verificatiecode</v-card-title>
             <v-card-text>
+              <strong>Simulatie 2-way authenticatie:</strong><br>
               De verificatiecode zou normaal gesproken via e-mail of sms naar de gebruiker worden gestuurd maar voor simulatiedoeleinden gebruiken we een automatisch gegenereerde code in de gebruikersinterface.
             </v-card-text>
             <v-col>
