@@ -4,7 +4,7 @@
     <span v-else>&#x25bc; {{ title }}</span>
   </div>
   <transition @after-enter="playOpenSound" @after-leave="playCloseSound">
-    <div v-if="open">
+    <div v-if="open" class="collapsible-content">
       <slot></slot>
     </div>
   </transition>
@@ -74,5 +74,8 @@ export default {
 .collapsible-section span {
   color: rgb(var(--v-theme-primary));
   font-size: 0.875rem;
+}
+.collapsible-content {
+  width: 100%;
 }
 </style>
