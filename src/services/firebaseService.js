@@ -16,8 +16,7 @@ export default {
       const user = userCredential.user;
       await setDoc(doc(db, 'users', user.uid), {
         name: userData.name,
-        email: userData.email,
-        verificationCode: userData.verificationCode
+        email: userData.email
       });
       return user;
     } catch (error) {
