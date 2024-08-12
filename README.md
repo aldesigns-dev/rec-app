@@ -24,7 +24,7 @@ De applicatie volgt best practices en richtlijnen voor beveiliging, accessibilit
 Broken Access Control:
 Een gebruiker heeft pas toegang tot inspectierapporten (en accountgegevens) nadat de gebruiker succesvol een account heeft gecreëerd en is ingelogd.
 Injection:
-In bijvoorbeeld `SignUpForm.vue` zijn e-mail- en wachtwoordvereisten toegepast en is een verificatiecode vereist. Firebase Authentication, Firestore Database en Firebase Storage zorgen automatisch voor encryptie van gegevens. Daarbij zijn er regels toegepast voor de storage en database.
+In bijvoorbeeld `LoginForm.vue` zijn e-mail- en wachtwoordvereisten toegepast en is een verificatiecode vereist. Firebase Authentication, Firestore Database en Firebase Storage zorgen automatisch voor encryptie van gegevens. Daarbij zijn er regels toegepast voor de storage en database.
 Security Misconfiguration:
 Gevoelige gegevens zoals API-sleutels van de Firebase configuratie zijn niet in de broncode opgenomen maar in een `.env` bestand zodat het risico verminderd wordt dat deze gegevens onbedoeld worden blootgesteld.
 - **Accessibility**: Naleving van WCAG 2.1 A richtlijnen om de toegankelijkheid voor alle gebruikers te waarborgen. Hieronder een aantal toegepaste voorbeelden.
@@ -46,8 +46,8 @@ Compatibiliteit met meerdere browsers en devices.
 
 ### 7. Error Handling
 De applicatie implementeert uitgebreide error handling om om gebruikers een betrouwbare ervaring te bieden en ontwikkelaars te helpen bij het oplossen van problemen. Hier zijn enkele aspecten van de error handling:
-- **Store (`store.js`)**: Alle acties in de store maken gebruik van `try-catch` blokken om fouten af te vangen tijdens interacties met de Firebase service. Dit zorgt ervoor dat eventuele fouten die optreden tijdens het uitvoeren van taken zoals het aanmaken van gebruikers, ophalen van gegevens, etc., correct worden afgehandeld en gelogd voor verdere analyse.
-- **Firebase Service (`firebaseService.js`)**: De service methoden gebruiken ook `try-catch` blokken om errors te vangen die kunnen optreden bij het uitvoeren van Firebase operaties. Hiermee worden potentiële issues zoals ongeldige gegevensverzoeken of serverfouten, effectief afgevangen en gelogd.
+- **Store** (`store.js`): Alle acties in de store maken gebruik van `try-catch` blokken om fouten af te vangen tijdens interacties met de Firebase service. Dit zorgt ervoor dat eventuele fouten die optreden tijdens het uitvoeren van taken zoals het aanmaken van gebruikers, ophalen van gegevens, etc., correct worden afgehandeld en gelogd voor verdere analyse.
+- **Firebase Service** (`firebaseService.js`): De service methoden gebruiken ook `try-catch` blokken om errors te vangen die kunnen optreden bij het uitvoeren van Firebase operaties. Hiermee worden potentiële issues zoals ongeldige gegevensverzoeken of serverfouten, effectief afgevangen en gelogd.
 -**Gebruikersinteracties**: In de gebruikersinterface zijn er ook meldingen en validaties ingebouwd om gebruikers te informeren over fouten die kunnen optreden tijdens het gebruik van de applicatie. Bijvoorbeeld bij het invullen van formulieren worden gebruikers geïnformeerd over verplichte velden die moeten worden ingevuld voordat een actie kan worden uitgevoerd. Dit helpt gebruikers om correcte gegevens in te voeren en vermindert potentieel verwarrende situaties.
 
 ### 8. Overige toelichting functionaliteiten
