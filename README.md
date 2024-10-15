@@ -77,3 +77,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Preview
+See [Demo App](https://loi-rec.web.app/).
